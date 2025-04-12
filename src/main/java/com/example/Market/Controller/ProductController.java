@@ -15,11 +15,13 @@ import java.util.List;
 @RestController
 @RequestMapping("/market")
 @RequiredArgsConstructor
-@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class ProductController {
 
     private final ProductService productService;
-
+    @GetMapping("/products")
+    public List<Product> getAll() {
+        return productService.getAllProducts();
+    }
     @GetMapping("/{id}")
     public Product getById(@PathVariable Long id) {
         return productService.getProductById(id);
