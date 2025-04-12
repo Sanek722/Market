@@ -1,11 +1,13 @@
 package com.example.Market.Model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Data
 @Table(name = "products")
 public class Product
 {

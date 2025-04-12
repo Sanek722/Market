@@ -2,7 +2,6 @@ package com.example.Market.Service;
 import com.example.Market.DTO.ProductReviewRequest;
 import com.example.Market.DTO.ProductReviewResponse;
 import com.example.Market.DTO.ProductReviewResponseWrapper;
-import jakarta.persistence.*;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
