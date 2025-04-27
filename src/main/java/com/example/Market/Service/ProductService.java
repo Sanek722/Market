@@ -17,16 +17,13 @@ import java.util.stream.Collectors;
 public class ProductService {
 
     private final ProductRepository productRepository;
-
     public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
-
     public Product getProductById(Long id) {
         return productRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Product not found"));
     }
-
     public Product createProduct(Product product) {
         return productRepository.save(product);
     }
@@ -40,11 +37,9 @@ public class ProductService {
         product.setDescription(updatedProduct.getDescription());
         return productRepository.save(product);
     }
-
     public void deleteProduct(Long id) {
         productRepository.deleteById(id);
     }
-
     public void decreaseQuantity(Long productId, int quantity) {
         Product product = getProductById(productId);
         if (product.getQuan() < quantity) {
@@ -54,5 +49,3 @@ public class ProductService {
         productRepository.save(product);
     }
 }
-
-

@@ -25,13 +25,7 @@ public class ReviewController {
     private final ReviewService reviewService;
     private final CommentService commentService;
     private final ProductService productService;
-//    @PreAuthorize("hasRole('ROLE_Admin')")
-//    @PostMapping("/summarize")
-//    public ResponseEntity<List<ProductReviewResponse>> summarize(@RequestBody ProductReviewRequest request) {
-//        List<ProductReviewResponse> responses = reviewService.processReviews(request);
-//        return ResponseEntity.ok(responses);
-//    }
-    @PreAuthorize("hasRole('ROLE_Admin')")
+
     @PostMapping("/summarize/{id}")
     public ResponseEntity<ProductReviewResponse> summarizeById(@PathVariable("id") Long productId) {
         Product product = productService.getProductById(productId);
@@ -47,8 +41,6 @@ public class ReviewController {
 
         return ResponseEntity.ok(reviewService.processReviews(request, productId));
     }
-
-
 
 }
 
